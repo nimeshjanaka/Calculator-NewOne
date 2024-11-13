@@ -24,11 +24,33 @@
   text-align: right;
   background-color: #eeeeee;
   border-radius: 5px;
+  height: 80px;
+  max-width: 100%; 
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  justify-content: flex-end; 
+}
+.first-line {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.second-line {
+  font-size: 18px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,100px );
   gap: 5px;
 }
 

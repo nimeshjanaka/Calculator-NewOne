@@ -6,9 +6,12 @@ function App() {
 
   // handle button click
   const handleClick = (value) => {
-    // clear input
     if (value === "AC") {
       setCount("");
+    }
+    // back button
+    else if (value === "Back") {
+      setCount(count.slice(0, -1));
     }
     // calculate result
     else if (value === "=") {
@@ -18,7 +21,9 @@ function App() {
         setCount("error");
       }
     } else {
-      setCount(count + value);
+      if (count.length < 40) {
+        setCount(count + value);
+      }
     }
   };
 
@@ -28,12 +33,13 @@ function App() {
         <div className="display">
           <h2>{count || "0"}</h2>
         </div>
+        <div className="extra-input"></div>
         <div className="buttons">
           <button className="button" onClick={() => handleClick("AC")}>
             AC
           </button>
-          <button className="button" onClick={() => handleClick("/")}>
-            /
+          <button className="button" onClick={() => handleClick("Back")}>
+            ←
           </button>
           <button className="button" onClick={() => handleClick("%")}>
             %
@@ -77,8 +83,8 @@ function App() {
           <button className="button" onClick={() => handleClick("3")}>
             3
           </button>
-          <button className="button" onClick={() => handleClick("=")}>
-            =
+          <button className="button" onClick={() => handleClick("/")}>
+            /
           </button>
 
           <button className="button" onClick={() => handleClick("#")}>
@@ -89,6 +95,9 @@ function App() {
           </button>
           <button className="button" onClick={() => handleClick(".")}>
             .
+          </button>
+          <button className="button" onClick={() => handleClick("=")}>
+            =
           </button>
         </div>
       </div>
